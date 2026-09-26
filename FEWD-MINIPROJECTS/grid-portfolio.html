@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grid Portfolio</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: #eeeeee;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .box {
+            background-color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+
+            transition: transform 0.3s;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .box h2 {
+            color: darkblue;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* Mobile */
+        @media screen and (max-width: 600px) {
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>My Portfolio</h1>
+        <p>Welcome to my website</p>
+    </header>
+
+    <div class="container">
+
+        <div class="box">
+            <h2>About Me</h2>
+            <p>I am a BCA student.</p>
+        </div>
+
+        <div class="box">
+            <h2>HTML</h2>
+            <p>I can create web pages using HTML.</p>
+        </div>
+
+        <div class="box">
+            <h2>CSS</h2>
+            <p>I can style websites using CSS.</p>
+        </div>
+
+        <div class="box">
+            <h2>JavaScript</h2>
+            <p>I am learning JavaScript.</p>
+        </div>
+
+        <div class="box">
+            <h2>Projects</h2>
+            <p>Portfolio and registration projects.</p>
+        </div>
+
+        <div class="box">
+            <h2>Contact</h2>
+            <p>example@gmail.com</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 My Portfolio</p>
+    </footer>
+
+</body>
+</html>

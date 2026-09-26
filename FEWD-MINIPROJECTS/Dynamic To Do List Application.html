@@ -1,0 +1,131 @@
+<html>
+<head>
+    <title>My To-Do List</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        /* background-color: #f2f2f2; */
+        background-image: linear-gradient(rgb(255, 213, 0),orange,white);
+        text-align: center;
+        padding: 30px;
+        margin-top: 250px;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    form {
+        background-color: white;
+        width: 400px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+    }
+
+    input {
+        padding: 10px;
+        width: 250px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+    }
+
+    ul {
+        text-align: left;
+        padding: 10px;
+    }
+
+    li {
+        background-color: #eee;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 5px;
+        list-style-position: inside;
+    }
+</style>
+
+
+
+<body>
+
+    <h1>My To-Do List Application</h1>
+
+    <form onsubmit="return false;">
+
+        <input type="text" id="taskInput" placeholder="Enter a task">
+
+        <button onclick="addTask()">Add Task</button>
+
+        <ul id="todo-list">
+        </ul>
+
+        <button onclick="clearCompleted()">Clear Completed</button>
+
+    </form>
+
+    <script>
+
+        function addTask() {
+
+            
+            let task = document.getElementById("taskInput").value;
+
+            if (task == "") {
+                alert("Please Enter a Task");
+                return;
+            }
+
+           
+            let li = document.createElement("li");
+
+            li.innerHTML = task +
+                " <button onclick='completeTask(this)'>Complete</button>" +
+                " <button onclick='removeTask(this)'>Remove</button>";
+
+            
+            document.getElementById("todo-list").appendChild(li);
+
+            
+            document.getElementById("taskInput").value = "";
+        }
+
+        function completeTask(button) {
+
+            button.parentElement.style.textDecoration = "line-through";
+        }
+
+        function removeTask(button) {
+
+            button.parentElement.remove();
+        }
+
+        function clearCompleted() {
+
+            let tasks = document.querySelectorAll("#todo-list li");
+
+            tasks.forEach(function(task) {
+
+                if (task.style.textDecoration === "line-through") {
+                    task.remove();
+                }
+
+            });
+        }
+
+    </script>
+
+</body>
+</html>
+
